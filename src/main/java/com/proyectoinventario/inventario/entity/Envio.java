@@ -15,6 +15,10 @@ public class Envio {
     @ManyToMany(cascade = CascadeType.ALL)
     private Long envio_id;
 
+    public Envio(Long id) {
+        this.envio_id = id;
+    }
+
     public Envio(Long producto_id, Long envio_id) {
         this.producto_id = producto_id;
         this.envio_id = envio_id;
