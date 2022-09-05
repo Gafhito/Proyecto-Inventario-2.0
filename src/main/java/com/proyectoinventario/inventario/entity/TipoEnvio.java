@@ -14,6 +14,10 @@ public class TipoEnvio {
     @Column(name = "tipo", length = 50, nullable = false)
     private String tipo;
 
+    public TipoEnvio(Long id) {
+        this.id = id;
+    }
+
     public TipoEnvio(Long id, String tipo) {
         this.id = id;
         this.tipo = tipo;
