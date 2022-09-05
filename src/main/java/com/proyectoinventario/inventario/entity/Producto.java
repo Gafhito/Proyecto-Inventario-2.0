@@ -29,6 +29,10 @@ public class Producto {
     @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Fabricante fabricante;
 
+    public Producto(Long id) {
+        this.id = id;
+    }
+
     public Producto(Long id, String nombre, int cantidad, int cantidadMinima, double precio, Categoria categoria, Fabricante fabricante) {
         this.id = id;
         this.nombre = nombre;
