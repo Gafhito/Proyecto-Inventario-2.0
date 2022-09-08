@@ -23,11 +23,14 @@ public class Producto {
     @Column(name = "precio", nullable = false)
     private double precio;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Categoria categoria;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Fabricante fabricante;
+
+    public Producto() {
+    }
 
     public Producto(Long id) {
         this.id = id;

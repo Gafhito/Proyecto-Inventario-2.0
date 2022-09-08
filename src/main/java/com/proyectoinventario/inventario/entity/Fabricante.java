@@ -14,6 +14,9 @@ public class Fabricante {
     @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
+    public Fabricante() {
+    }
+
     public Fabricante(Long id) {
         this.id = id;
     }

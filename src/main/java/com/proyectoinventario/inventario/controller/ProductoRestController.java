@@ -2,27 +2,36 @@ package com.proyectoinventario.inventario.controller;
 
 import com.proyectoinventario.inventario.caseuse.producto.CreateProducto;
 import com.proyectoinventario.inventario.caseuse.producto.DeleteProducto;
+import com.proyectoinventario.inventario.caseuse.producto.GetProducto;
 import com.proyectoinventario.inventario.caseuse.producto.UpdateProducto;
 import com.proyectoinventario.inventario.entity.Producto;
 import com.proyectoinventario.inventario.repository.ProductoRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/producto")
 public class ProductoRestController {
 
+    private GetProducto getProducto;
     private CreateProducto createProducto;
     private UpdateProducto updateProducto;
     private DeleteProducto deleteProducto;
     private ProductoRepository productoRepository;
 
-    public ProductoRestController(CreateProducto createProducto, UpdateProducto updateProducto, DeleteProducto deleteProducto, ProductoRepository productoRepository) {
+    public ProductoRestController(GetProducto getProducto, CreateProducto createProducto, UpdateProducto updateProducto, DeleteProducto deleteProducto, ProductoRepository productoRepository) {
+        this.getProducto = getProducto;
         this.createProducto = createProducto;
         this.updateProducto = updateProducto;
         this.deleteProducto = deleteProducto;
         this.productoRepository = productoRepository;
+    }
+
+    @GetMapping("/")
+    List<Producto> get() {
+        return getProducto.getAll();
     }
 
     @PostMapping("/")

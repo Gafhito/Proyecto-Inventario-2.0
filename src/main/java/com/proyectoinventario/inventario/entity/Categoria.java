@@ -13,6 +13,9 @@ public class Categoria {
     @Column(name = "nombre", length = 50, nullable = false)
     private String nombre;
 
+    public Categoria() {
+    }
+
     public Categoria(Long id) {
         this.id = id;
     }
