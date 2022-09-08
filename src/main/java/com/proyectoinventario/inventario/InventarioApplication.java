@@ -1,6 +1,7 @@
 package com.proyectoinventario.inventario;
 
 import com.proyectoinventario.inventario.entity.Categoria;
+import com.proyectoinventario.inventario.entity.Envio;
 import com.proyectoinventario.inventario.entity.Fabricante;
 import com.proyectoinventario.inventario.entity.Producto;
 import com.proyectoinventario.inventario.repository.*;
@@ -19,14 +20,18 @@ public class InventarioApplication implements CommandLineRunner {
 	private CategoriaService categoriaService;
 	private FabricanteRepository fabricanteRepository;
 	private FabricanteService fabricanteService;
+	private EnvioRepository envioRepository;
+	private EnvioService envioService;
 	private ProductoRepository productoRepository;
 	private ProductoService productoService;
 
-	public InventarioApplication(CategoriaRepository categoriaRepository, CategoriaService categoriaService, FabricanteRepository fabricanteRepository, FabricanteService fabricanteService, ProductoRepository productoRepository, ProductoService productoService) {
+	public InventarioApplication(CategoriaRepository categoriaRepository, CategoriaService categoriaService, FabricanteRepository fabricanteRepository, FabricanteService fabricanteService, EnvioRepository envioRepository, EnvioService envioService, ProductoRepository productoRepository, ProductoService productoService) {
 		this.categoriaRepository = categoriaRepository;
 		this.categoriaService = categoriaService;
 		this.fabricanteRepository = fabricanteRepository;
 		this.fabricanteService = fabricanteService;
+		this.envioRepository = envioRepository;
+		this.envioService = envioService;
 		this.productoRepository = productoRepository;
 		this.productoService = productoService;
 	}
@@ -60,15 +65,22 @@ public class InventarioApplication implements CommandLineRunner {
 		Fabricante fabricante9 = new Fabricante(9L, "Avanti");
 		Fabricante fabricante10 = new Fabricante(10L, "El Trigal");
 
-		Producto producto1 = new Producto(1L, "Laptop Asus TUF Gaming", 10, 5, 21500.60, categoria1, fabricante1);
-		Producto producto2 = new Producto(2L, "Laptop Asus Rog Strix", 10, 5, 32100.80, categoria1, fabricante1);
-		Producto producto3 = new Producto(3L, "Laptop HP Celeron", 30, 10, 9500.90, categoria1, fabricante2);
+		Envio envio1 = new Envio(1L, "Retira");
+		Envio envio2 = new Envio(2L, "Reparto");
+		Envio envio3 = new Envio(3L, "Agencia de Encomienda");
+
+		Producto producto1 = new Producto(1L, "Laptop Asus TUF Gaming", 10, 5, 21500.60, categoria1, fabricante1, envio3);
+		Producto producto2 = new Producto(2L, "Laptop Asus Rog Strix", 10, 5, 32100.80, categoria1, fabricante1, envio3);
+		Producto producto3 = new Producto(3L, "Laptop HP Celeron", 30, 10, 9500.90, categoria1, fabricante2, envio3);
 
 		List<Categoria> listaCategoria = Arrays.asList(categoria1, categoria2, categoria3, categoria4, categoria5, categoria6);
 		listaCategoria.stream().forEach(categoriaRepository::save);
 
 		List<Fabricante> listaFabricante = Arrays.asList(fabricante1, fabricante2, fabricante3, fabricante4, fabricante5, fabricante6, fabricante7, fabricante8, fabricante9, fabricante10);
 		listaFabricante.stream().forEach(fabricanteRepository::save);
+
+		List<Envio> listaEnvio = Arrays.asList(envio1, envio2, envio3);
+		listaEnvio.stream().forEach((envioRepository::save));
 
 		List<Producto> listaProducto = Arrays.asList(producto1, producto2, producto3);
 		listaProducto.stream().forEach(productoRepository::save);

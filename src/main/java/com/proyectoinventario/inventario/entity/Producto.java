@@ -29,6 +29,9 @@ public class Producto {
     @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Fabricante fabricante;
 
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Envio envio;
+
     public Producto() {
     }
 
@@ -36,7 +39,7 @@ public class Producto {
         this.id = id;
     }
 
-    public Producto(Long id, String nombre, int cantidad, int cantidadMinima, double precio, Categoria categoria, Fabricante fabricante) {
+    public Producto(Long id, String nombre, int cantidad, int cantidadMinima, double precio, Categoria categoria, Fabricante fabricante, Envio envio) {
         this.id = id;
         this.nombre = nombre;
         this.cantidad = cantidad;
@@ -44,6 +47,7 @@ public class Producto {
         this.precio = precio;
         this.categoria = categoria;
         this.fabricante = fabricante;
+        this.envio = envio;
     }
 
     public Long getId() {
@@ -98,4 +102,11 @@ public class Producto {
         this.fabricante = fabricante;
     }
 
+    public Envio getEnvio() {
+        return envio;
+    }
+
+    public void setEnvio(Envio envio) {
+        this.envio = envio;
+    }
 }
