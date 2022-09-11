@@ -29,12 +29,12 @@ public class ProductoRestController {
         this.productoRepository = productoRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping
     List<Producto> get() {
         return getProducto.getAll();
     }
 
-    @PostMapping("/")
+    @PostMapping
     ResponseEntity<Producto> newProducto(@RequestBody Producto newProducto) {
         return new ResponseEntity<>(createProducto.save(newProducto), HttpStatus.CREATED);
     }

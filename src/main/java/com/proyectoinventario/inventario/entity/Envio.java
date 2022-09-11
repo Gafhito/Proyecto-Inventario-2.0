@@ -8,7 +8,7 @@ public class Envio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false, unique = true)
+    @Column(name = "id", nullable = false)
     private Long id;
 
     @Column(name = "tipo", length = 50, nullable = false)

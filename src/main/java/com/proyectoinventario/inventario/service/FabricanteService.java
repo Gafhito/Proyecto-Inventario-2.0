@@ -4,6 +4,8 @@ import com.proyectoinventario.inventario.entity.Fabricante;
 import com.proyectoinventario.inventario.repository.FabricanteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FabricanteService {
 
@@ -11,6 +13,10 @@ public class FabricanteService {
 
     public FabricanteService(FabricanteRepository fabricanteRepository) {
         this.fabricanteRepository = fabricanteRepository;
+    }
+
+    public List<Fabricante> getAllCategoria() {
+        return fabricanteRepository.findAll();
     }
 
     public Fabricante save(Fabricante newFabricante) {
