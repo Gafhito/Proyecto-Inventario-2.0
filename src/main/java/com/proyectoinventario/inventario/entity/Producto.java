@@ -24,12 +24,15 @@ public class Producto {
     private double precio;
 
     @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "categoria")
     private Categoria categoria;
 
     @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "fabricante")
     private Fabricante fabricante;
 
     @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "envio")
     private Envio envio;
 
     public Producto() {
@@ -109,4 +112,5 @@ public class Producto {
     public void setEnvio(Envio envio) {
         this.envio = envio;
     }
+
 }

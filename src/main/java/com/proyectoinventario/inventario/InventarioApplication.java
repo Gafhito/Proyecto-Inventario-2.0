@@ -69,9 +69,25 @@ public class InventarioApplication implements CommandLineRunner {
 		Envio envio2 = new Envio(2L, "Reparto");
 		Envio envio3 = new Envio(3L, "Agencia de Encomienda");
 
-		Producto producto1 = new Producto(1L, "Laptop Asus TUF Gaming", 10, 5, 21500.60, categoria1, fabricante1, envio3);
-		Producto producto2 = new Producto(2L, "Laptop Asus Rog Strix", 10, 5, 32100.80, categoria1, fabricante1, envio3);
-		Producto producto3 = new Producto(3L, "Laptop HP Celeron", 30, 10, 9500.90, categoria1, fabricante2, envio3);
+		Producto p1 = new Producto(null, "Laptop Asus TUF Gaming", 10, 5, 21500.60, categoria1, fabricante1, envio3);
+		Producto p2 = new Producto(null, "Lata de arvejas", 15, 100, 48.90, categoria6, fabricante8, envio1);
+		Producto p3 = new Producto(null, "Lata de choclo", 60, 100, 48.90, categoria6, fabricante8, envio1);
+		Producto p4 = new Producto(null, "Soldadora industrial", 30, 10, 15600, categoria2, fabricante3, envio1);
+		Producto p5 = new Producto(null, "Laptop Asus Rog Strix", 10, 5, 32100.80, categoria1, fabricante1, envio3);
+		Producto p6 = new Producto(null, "Soldadora berreta", 88, 10, 3200.80, categoria2, fabricante6, envio1);
+		Producto p7 = new Producto(null, "Masa Frolla", 44, 10, 99.90, categoria6, fabricante9, envio1);
+		Producto p8 = new Producto(null, "Granola", 20, 10, 49, categoria6, fabricante10, envio1);
+		Producto p9 = new Producto(null, "Repuestos motor", 239, 300, 5000.40, categoria3, fabricante5, envio2);
+		Producto p10 = new Producto(null, "Laptop HP Celeron", 30, 10, 9500.90, categoria1, fabricante2, envio3);
+		Producto p11 = new Producto(null, "Soldadora domestica", 80, 10, 9000.50, categoria2, fabricante4, envio1);
+		Producto p12 = new Producto(null, "Clavos", 92000, 50000, 99.99, categoria4, fabricante6, envio1);
+		Producto p13 = new Producto(null, "Martillo", 630, 100, 379.90, categoria4, fabricante6, envio1);
+		Producto p14 = new Producto(null, "Cloro", 274, 100, 199.90, categoria5, fabricante7, envio1);
+		Producto p15 = new Producto(null, "Tablones de segunda", 517, 200, 399.90, categoria4, fabricante6, envio2);
+		Producto p16 = new Producto(null, "Perfumol", 453, 100, 199.90, categoria5, fabricante7, envio1);
+		Producto p17 = new Producto(null, "Repasadores", 30, 50, 79.90, categoria5, fabricante6, envio1);
+		Producto p18 = new Producto(null, "Tapas de empanadas", 30, 10, 70.90, categoria6, fabricante9, envio1);
+		Producto p19 = new Producto(null, "Cereales", 23, 10, 39.99, categoria6, fabricante10, envio2);
 
 		List<Categoria> listaCategoria = Arrays.asList(categoria1, categoria2, categoria3, categoria4, categoria5, categoria6);
 		listaCategoria.stream().forEach(categoriaRepository::save);
@@ -82,7 +98,7 @@ public class InventarioApplication implements CommandLineRunner {
 		List<Envio> listaEnvio = Arrays.asList(envio1, envio2, envio3);
 		listaEnvio.stream().forEach((envioRepository::save));
 
-		List<Producto> listaProducto = Arrays.asList(producto1, producto2, producto3);
+		List<Producto> listaProducto = Arrays.asList(p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19);
 		listaProducto.stream().forEach(productoRepository::save);
 
 	}
