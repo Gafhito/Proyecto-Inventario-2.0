@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/producto")
@@ -32,6 +33,11 @@ public class ProductoRestController {
     @GetMapping
     List<Producto> get() {
         return getProducto.getAll();
+    }
+
+    @GetMapping("/{id}")
+    Producto getProducto(@PathVariable Long id) {
+        return getProducto.getOne(id);
     }
 
     @PostMapping

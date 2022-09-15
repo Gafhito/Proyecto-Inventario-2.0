@@ -1,9 +1,5 @@
 package com.proyectoinventario.inventario;
 
-import com.proyectoinventario.inventario.entity.Categoria;
-import com.proyectoinventario.inventario.entity.Envio;
-import com.proyectoinventario.inventario.entity.Fabricante;
-import com.proyectoinventario.inventario.entity.Producto;
 import com.proyectoinventario.inventario.repository.*;
 import com.proyectoinventario.inventario.service.*;
 import org.springframework.boot.SpringApplication;

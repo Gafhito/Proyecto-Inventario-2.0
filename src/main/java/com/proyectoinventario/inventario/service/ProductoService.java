@@ -5,6 +5,7 @@ import com.proyectoinventario.inventario.repository.ProductoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductoService {
@@ -17,6 +18,10 @@ public class ProductoService {
 
     public List<Producto> getAllProductos() {
         return productoRepository.findAll();
+    }
+
+    public Producto getOneProducto(Long id) {
+        return productoRepository.findOneById(id);
     }
 
     public Producto save(Producto newProducto) {

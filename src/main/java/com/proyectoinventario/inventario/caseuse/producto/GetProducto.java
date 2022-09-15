@@ -5,6 +5,7 @@ import com.proyectoinventario.inventario.service.ProductoService;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class GetProducto {
@@ -17,6 +18,10 @@ public class GetProducto {
 
     public List<Producto> getAll() {
         return productoService.getAllProductos();
+    }
+
+    public Producto getOne(Long id) {
+        return productoService.getOneProducto(id);
     }
 
 }
